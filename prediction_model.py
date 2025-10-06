@@ -23,7 +23,7 @@ class DegradationPrediction:
 class APIClient:
     """Client for communication with the degradation API"""
     
-    def __init__(self, base_url: str = "http://localhost:5000"):
+    def __init__(self, base_url: str = "http://localhost:5000/chat"):
         self.base_url = base_url
         
     def query_degradation_data(self, prompt: str) -> Dict:
