@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from prediction_model import DegradationPrediction
 
 class VisualizationUtils:
-    """Utilitários para criação de visualizações avançadas"""
+    """Utilities for creating advanced visualizations"""
     
     def __init__(self):
         self.color_palette = {
@@ -26,30 +26,30 @@ class VisualizationUtils:
                                  x_labels: List[str], y_labels: List[str], 
                                  metric: str = 'degradation') -> go.Figure:
         """
-        Cria heatmap de degradação baseado em matriz de predições
+        Creates degradation heatmap based on predictions matrix
         
         Args:
-            predictions_matrix: Matriz de predições
-            x_labels: Rótulos do eixo X
-            y_labels: Rótulos do eixo Y
-            metric: Métrica a ser visualizada ('degradation', 'time', 'confidence')
+            predictions_matrix: Predictions matrix
+            x_labels: X-axis labels
+            y_labels: Y-axis labels
+            metric: Metric to visualize ('degradation', 'time', 'confidence')
         """
         
-        # Extrair valores da matriz baseado na métrica
+        # Extract values from matrix based on metric
         if metric == 'degradation':
             values = [[pred.weight_loss_percentage for pred in row] for row in predictions_matrix]
-            title = "Mapa de Calor - Degradação Esperada (%)"
+            title = "Heat Map - Expected Degradation (%)"
             colorscale = 'Reds'
         elif metric == 'time':
             values = [[pred.degradation_time_days for pred in row] for row in predictions_matrix]
-            title = "Mapa de Calor - Tempo para Degradação (dias)"
+            title = "Heat Map - Time to Degradation (days)"
             colorscale = 'Blues_r'
         elif metric == 'confidence':
             values = [[pred.confidence for pred in row] for row in predictions_matrix]
-            title = "Mapa de Calor - Confiança da Predição"
+            title = "Heat Map - Prediction Confidence"
             colorscale = 'Greens'
         else:
-            raise ValueError("Métrica deve ser 'degradation', 'time' ou 'confidence'")
+            raise ValueError("Metric must be 'degradation', 'time' or 'confidence'")
         
         fig = go.Figure(data=go.Heatmap(
             z=values,
@@ -57,13 +57,13 @@ class VisualizationUtils:
             y=y_labels,
             colorscale=colorscale,
             hoverongaps=False,
-            hovertemplate='<b>%{y}</b><br>%{x}<br>Valor: %{z}<extra></extra>'
+            hovertemplate='<b>%{y}</b><br>%{x}<br>Value: %{z}<extra></extra>'
         ))
         
         fig.update_layout(
             title=title,
-            xaxis_title="Condições/Parâmetros",
-            yaxis_title="Microrganismos/Plásticos",
+            xaxis_title="Conditions/Parameters",
+            yaxis_title="Microorganisms/Plastics",
             template='plotly_white'
         )
         
@@ -73,7 +73,7 @@ class VisualizationUtils:
                               degradation_surface: np.ndarray, plastic_type: str, 
                               microorganism: str) -> go.Figure:
         """
-        Cria gráfico 3D de superfície mostrando efeito de temperatura e umidade
+        Creates 3D surface plot showing temperature and humidity effects
         """
         
         fig = go.Figure(data=[go.Surface(
@@ -81,15 +81,15 @@ class VisualizationUtils:
             x=temp_range,
             y=humidity_range,
             colorscale='Viridis',
-            hovertemplate='Temp: %{x}°C<br>Umidade: %{y}%<br>Degradação: %{z}%<extra></extra>'
+            hovertemplate='Temp: %{x}°C<br>Humidity: %{y}%<br>Degradation: %{z}%<extra></extra>'
         )])
         
         fig.update_layout(
-            title=f'Superfície de Degradação 3D - {plastic_type} com {microorganism}',
+            title=f'3D Degradation Surface - {plastic_type} with {microorganism}',
             scene=dict(
-                xaxis_title='Temperatura (°C)',
-                yaxis_title='Umidade (%)',
-                zaxis_title='Degradação (%)',
+                xaxis_title='Temperature (°C)',
+                yaxis_title='Humidity (%)',
+                zaxis_title='Degradation (%)',
                 camera=dict(eye=dict(x=1.2, y=1.2, z=1.2))
             ),
             template='plotly_white'
@@ -100,12 +100,12 @@ class VisualizationUtils:
     def create_sensitivity_analysis(self, base_prediction: DegradationPrediction,
                                   parameter_variations: Dict[str, List[float]]) -> go.Figure:
         """
-        Cria análise de sensibilidade dos parâmetros
+        Creates parameter sensitivity analysis
         """
         
         fig = make_subplots(
             rows=2, cols=2,
-            subplot_titles=('Temperatura', 'Umidade', 'pH', 'Resumo'),
+            subplot_titles=('Temperature', 'Humidity', 'pH', 'Summary'),
             specs=[[{"secondary_y": True}, {"secondary_y": True}],
                    [{"secondary_y": True}, {"type": "bar"}]]
         )
@@ -122,8 +122,8 @@ class VisualizationUtils:
                 times = []
                 
                 for val in values:
-                    # Simular predição com parâmetro variado
-                    # (aqui você integraria com o modelo real)
+                    # Simulate prediction with varied parameter
+                    # (here you would integrate with the real model)
                     base_deg = base_prediction.expected_weight_loss
                     base_time = base_prediction.time_to_observable_degradation
                     
@@ -140,41 +140,41 @@ class VisualizationUtils:
                 row = (i // 2) + 1
                 col = (i % 2) + 1
                 
-                # Degradação
+                # Degradation
                 fig.add_trace(
-                    go.Scatter(x=values, y=degradations, name=f'Degradação ({param})',
+                    go.Scatter(x=values, y=degradations, name=f'Degradation ({param})',
                               line=dict(color=colors[i]), mode='lines+markers'),
                     row=row, col=col
                 )
                 
-                # Tempo (eixo secundário)
+                # Time (secondary axis)
                 fig.add_trace(
-                    go.Scatter(x=values, y=times, name=f'Tempo ({param})',
+                    go.Scatter(x=values, y=times, name=f'Time ({param})',
                               line=dict(color=colors[i], dash='dash'), mode='lines+markers',
                               yaxis='y2'),
                     row=row, col=col, secondary_y=True
                 )
                 
-                # Calcular sensibilidade
+                # Calculate sensitivity
                 deg_sensitivity = np.std(degradations) / np.mean(degradations)
                 time_sensitivity = np.std(times) / np.mean(times)
                 sensitivity_data.append({
-                    'Parâmetro': param.title(),
-                    'Sensibilidade': (deg_sensitivity + time_sensitivity) / 2
+                    'Parameter': param.title(),
+                    'Sensitivity': (deg_sensitivity + time_sensitivity) / 2
                 })
         
-        # Gráfico de barras de sensibilidade
+        # Sensitivity bar chart
         if sensitivity_data:
             sens_df = pd.DataFrame(sensitivity_data)
             fig.add_trace(
-                go.Bar(x=sens_df['Parâmetro'], y=sens_df['Sensibilidade'],
-                      name='Sensibilidade', marker_color='orange'),
+                go.Bar(x=sens_df['Parameter'], y=sens_df['Sensitivity'],
+                      name='Sensitivity', marker_color='orange'),
                 row=2, col=2
             )
         
         fig.update_layout(
             height=800,
-            title_text="Análise de Sensibilidade dos Parâmetros",
+            title_text="Parameter Sensitivity Analysis",
             template='plotly_white'
         )
         
@@ -182,10 +182,10 @@ class VisualizationUtils:
     
     def create_uncertainty_bands(self, predictions: List[DegradationPrediction]) -> go.Figure:
         """
-        Cria gráfico com bandas de incerteza baseadas na confiança
+        Creates chart with uncertainty bands based on confidence
         """
         
-        # Ordenar por tempo
+        # Sort by time
         sorted_preds = sorted(predictions, key=lambda x: x.degradation_time_days)
         
         times = [p.degradation_time_days for p in sorted_preds]
@@ -198,32 +198,32 @@ class VisualizationUtils:
         
         fig = go.Figure()
         
-        # Banda de incerteza
+        # Uncertainty band
         fig.add_trace(go.Scatter(
             x=times + times[::-1],
             y=upper_bounds + lower_bounds[::-1],
             fill='toself',
             fillcolor='rgba(31, 119, 180, 0.2)',
             line=dict(color='rgba(255,255,255,0)'),
-            name='Banda de Incerteza',
+            name='Uncertainty Band',
             hoverinfo="skip"
         ))
         
-        # Linha central
+        # Central line
         fig.add_trace(go.Scatter(
             x=times,
             y=degradations,
             mode='lines+markers',
-            name='Predição Central',
+            name='Central Prediction',
             line=dict(color='#1f77b4', width=3),
             marker=dict(size=8, color=confidences, colorscale='Viridis',
-                       showscale=True, colorbar=dict(title="Confiança"))
+                       showscale=True, colorbar=dict(title="Confidence"))
         ))
         
         fig.update_layout(
-            title="Predições com Bandas de Incerteza",
-            xaxis_title="Tempo para Degradação (dias)",
-            yaxis_title="Degradação Esperada (%)",
+            title="Predictions with Uncertainty Bands",
+            xaxis_title="Time to Degradation (days)",
+            yaxis_title="Expected Degradation (%)",
             template='plotly_white',
             hovermode='x unified'
         )
@@ -261,23 +261,23 @@ class VisualizationUtils:
     def create_distribution_plot(self, predictions: List[DegradationPrediction],
                                metric: str = 'degradation') -> go.Figure:
         """
-        Cria gráfico de distribuição das predições
+        Creates distribution plot of predictions
         """
         
         if metric == 'degradation':
             values = [p.weight_loss_percentage for p in predictions]
-            title = "Distribuição da Degradação Esperada"
-            x_title = "Degradação (%)"
+            title = "Expected Degradation Distribution"
+            x_title = "Degradation (%)"
         elif metric == 'time':
             values = [p.degradation_time_days for p in predictions]
-            title = "Distribuição do Tempo para Degradação"
-            x_title = "Tempo (dias)"
+            title = "Time to Degradation Distribution"
+            x_title = "Time (days)"
         elif metric == 'confidence':
             values = [p.confidence for p in predictions]
-            title = "Distribuição da Confiança"
-            x_title = "Confiança"
+            title = "Confidence Distribution"
+            x_title = "Confidence"
         else:
-            raise ValueError("Métrica deve ser 'degradation', 'time' ou 'confidence'")
+            raise ValueError("Metric must be 'degradation', 'time' or 'confidence'")
         
         fig = go.Figure()
         
@@ -285,16 +285,16 @@ class VisualizationUtils:
         fig.add_trace(go.Histogram(
             x=values,
             nbinsx=20,
-            name='Distribuição',
+            name='Distribution',
             opacity=0.7,
             marker_color=self.color_palette['primary']
         ))
         
-        # Linha de densidade (aproximada)
+        # Density line (approximated)
         hist, bin_edges = np.histogram(values, bins=20, density=True)
         bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
         
-        # Suavização simples
+        # Simple smoothing
         from scipy.ndimage import gaussian_filter1d
         smoothed_hist = gaussian_filter1d(hist, sigma=1)
         
@@ -302,23 +302,23 @@ class VisualizationUtils:
             x=bin_centers,
             y=smoothed_hist * len(values) * (bin_edges[1] - bin_edges[0]),
             mode='lines',
-            name='Densidade',
+            name='Density',
             line=dict(color=self.color_palette['secondary'], width=3)
         ))
         
-        # Estatísticas
+        # Statistics
         mean_val = np.mean(values)
         median_val = np.median(values)
         
         fig.add_vline(x=mean_val, line_dash="dash", line_color="red",
-                     annotation_text=f"Média: {mean_val:.1f}")
+                     annotation_text=f"Mean: {mean_val:.1f}")
         fig.add_vline(x=median_val, line_dash="dot", line_color="green",
-                     annotation_text=f"Mediana: {median_val:.1f}")
+                     annotation_text=f"Median: {median_val:.1f}")
         
         fig.update_layout(
             title=title,
             xaxis_title=x_title,
-            yaxis_title="Frequência",
+            yaxis_title="Frequency",
             template='plotly_white',
             showlegend=True
         )
@@ -327,49 +327,49 @@ class VisualizationUtils:
     
     def create_performance_dashboard(self, predictions: List[DegradationPrediction]) -> go.Figure:
         """
-        Cria dashboard de performance do modelo
+        Creates model performance dashboard
         """
         
         fig = make_subplots(
             rows=2, cols=3,
-            subplot_titles=('Confiança vs Degradação', 'Tempo vs Degradação', 
-                           'Distribuição de Confiança', 'Eficiência por Organismo',
-                           'Eficiência por Plástico', 'Resumo Estatístico'),
+            subplot_titles=('Confidence vs Degradation', 'Time vs Degradation', 
+                           'Confidence Distribution', 'Efficiency by Organism',
+                           'Efficiency by Plastic', 'Statistical Summary'),
             specs=[[{"type": "scatter"}, {"type": "scatter"}, {"type": "histogram"}],
                    [{"type": "bar"}, {"type": "bar"}, {"type": "table"}]]
         )
         
-        # Dados para análise
+        # Data for analysis
         confidences = [p.confidence for p in predictions]
         degradations = [p.weight_loss_percentage for p in predictions]
         times = [p.degradation_time_days for p in predictions]
         organisms = [p.microorganism for p in predictions]
         plastics = [p.plastic_type for p in predictions]
         
-        # Gráfico 1: Confiança vs Degradação
+        # Chart 1: Confidence vs Degradation
         fig.add_trace(
             go.Scatter(x=confidences, y=degradations, mode='markers',
-                      name='Confiança vs Degradação',
+                      name='Confidence vs Degradation',
                       marker=dict(size=8, color=times, colorscale='Viridis')),
             row=1, col=1
         )
         
-        # Gráfico 2: Tempo vs Degradação
+        # Chart 2: Time vs Degradation
         fig.add_trace(
             go.Scatter(x=times, y=degradations, mode='markers',
-                      name='Tempo vs Degradação',
+                      name='Time vs Degradation',
                       marker=dict(size=8, color=confidences, colorscale='Reds')),
             row=1, col=2
         )
         
-        # Gráfico 3: Distribuição de Confiança
+        # Chart 3: Confidence Distribution
         fig.add_trace(
-            go.Histogram(x=confidences, name='Distribuição Confiança',
+            go.Histogram(x=confidences, name='Confidence Distribution',
                         marker_color=self.color_palette['info']),
             row=1, col=3
         )
         
-        # Gráfico 4: Eficiência por Organismo
+        # Chart 4: Efficiency by Organism
         organism_stats = pd.DataFrame({
             'organism': organisms,
             'degradation': degradations,
@@ -381,12 +381,12 @@ class VisualizationUtils:
         
         fig.add_trace(
             go.Bar(x=organism_stats['organism'], y=organism_stats['degradation'],
-                  name='Degradação Média por Organismo',
+                  name='Average Degradation by Organism',
                   marker_color=self.color_palette['success']),
             row=2, col=1
         )
         
-        # Gráfico 5: Eficiência por Plástico
+        # Chart 5: Efficiency by Plastic
         plastic_stats = pd.DataFrame({
             'plastic': plastics,
             'degradation': degradations,
@@ -398,19 +398,19 @@ class VisualizationUtils:
         
         fig.add_trace(
             go.Bar(x=plastic_stats['plastic'], y=plastic_stats['degradation'],
-                  name='Degradação Média por Plástico',
+                  name='Average Degradation by Plastic',
                   marker_color=self.color_palette['warning']),
             row=2, col=2
         )
         
-        # Tabela de resumo estatístico
+        # Statistical summary table
         stats_data = [
-            ['Métrica', 'Valor'],
-            ['Degradação Média', f"{np.mean(degradations):.1f}%"],
-            ['Tempo Médio', f"{np.mean(times):.0f} dias"],
-            ['Confiança Média', f"{np.mean(confidences):.2f}"],
-            ['Desvio Padrão Degradação', f"{np.std(degradations):.1f}%"],
-            ['Desvio Padrão Tempo', f"{np.std(times):.0f} dias"]
+            ['Metric', 'Value'],
+            ['Average Degradation', f"{np.mean(degradations):.1f}%"],
+            ['Average Time', f"{np.mean(times):.0f} days"],
+            ['Average Confidence', f"{np.mean(confidences):.2f}"],
+            ['Degradation Std Dev', f"{np.std(degradations):.1f}%"],
+            ['Time Std Dev', f"{np.std(times):.0f} days"]
         ]
         
         fig.add_trace(
@@ -423,7 +423,7 @@ class VisualizationUtils:
         
         fig.update_layout(
             height=800,
-            title_text="Dashboard de Performance do Modelo",
+            title_text="Model Performance Dashboard",
             template='plotly_white',
             showlegend=False
         )

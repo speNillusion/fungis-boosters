@@ -1,11 +1,11 @@
 # GitHub Repository Setup
 
-## 📝 Descrição Curta (para o campo "About")
+## 📝 Short Description (for "About" field)
 ```
-Sistema inteligente de predição da biodegradação de plásticos por fungos. Dashboard interativo com 2.432 estudos científicos, 857 microrganismos e visualizações avançadas.
+Intelligent system for predicting plastic biodegradation by fungi. Interactive dashboard with 2,432 scientific studies, 857 microorganisms and advanced visualizations.
 ```
 
-## 🏷️ Tags Sugeridas
+## 🏷️ Suggested Tags
 ```
 plastic-degradation
 biodegradation
@@ -34,7 +34,7 @@ green-technology
 https://seu-usuario.github.io/plastic-degradation-dashboard
 ```
 
-## 📊 Tópicos Principais (GitHub Topics)
+## 📊 Main Topics (GitHub Topics)
 ```
 plastic-degradation
 biodegradation

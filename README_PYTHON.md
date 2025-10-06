@@ -1,83 +1,83 @@
-# 🧪 Interface Python para Predição de Degradação de Plásticos por Fungos
+# 🧪 Python Interface for Plastic Degradation by Fungi Prediction
 
-Esta aplicação fornece uma interface completa para predição e análise da degradação de plásticos por microrganismos fúngicos, baseada em literatura científica e modelos preditivos avançados.
+This application provides a complete interface for prediction and analysis of plastic degradation by fungal microorganisms, based on scientific literature and advanced predictive models.
 
-## 📋 Características Principais
+## 📋 Main Features
 
-### 🔮 Modelo de Predição
-- **Predição baseada em literatura científica**: Utiliza dados de estudos como o de Aspergillus niger, Candida albicans e Acremonium sclerotigenum
-- **Fatores ambientais**: Considera temperatura, umidade relativa e pH
-- **Tipos de plástico**: Suporte para PVC, PE, PET, PS, PP, PLA, PHB
-- **Formas de plástico**: Peças, microplásticos, filmes e pó
-- **Confiança estatística**: Cada predição inclui nível de confiança
+### 🔮 Prediction Model
+- **Scientific literature-based prediction**: Uses data from studies such as Aspergillus niger, Candida albicans and Acremonium sclerotigenum
+- **Environmental factors**: Considers temperature, relative humidity and pH
+- **Plastic types**: Support for PVC, PE, PET, PS, PP, PLA, PHB
+- **Plastic forms**: Pieces, microplastics, films and powder
+- **Statistical confidence**: Each prediction includes confidence level
 
-### 📊 Dashboard Interativo
-- **Interface web moderna**: Desenvolvida com Streamlit
-- **Visualizações avançadas**: Gráficos 3D, mapas de calor, análise de sensibilidade
-- **Análise comparativa**: Compare diferentes cenários simultaneamente
-- **Dados históricos**: Acesso à base de dados da literatura científica
+### 📊 Interactive Dashboard
+- **Modern web interface**: Developed with Streamlit
+- **Advanced visualizations**: 3D charts, heat maps, sensitivity analysis
+- **Comparative analysis**: Compare different scenarios simultaneously
+- **Historical data**: Access to scientific literature database
 
-### 📈 Visualizações Disponíveis
-- Timeline de degradação
-- Gráficos radar de condições ambientais
-- Mapas de calor de eficiência
-- Superfícies 3D de resposta
-- Análise de sensibilidade
-- Bandas de incerteza
-- Distribuições estatísticas
+### 📈 Available Visualizations
+- Degradation timeline
+- Environmental conditions radar charts
+- Efficiency heat maps
+- 3D response surfaces
+- Sensitivity analysis
+- Uncertainty bands
+- Statistical distributions
 
-## 🚀 Como Usar
+## 🚀 How to Use
 
-### Instalação Rápida
+### Quick Installation
 
-1. **Execute o script principal**:
+1. **Run the main script**:
    ```bash
    python run_app.py
    ```
    
-   O script automaticamente:
-   - Verifica dependências
-   - Instala pacotes necessários
-   - Inicia a aplicação web
+   The script automatically:
+   - Checks dependencies
+   - Installs necessary packages
+   - Starts the web application
 
-2. **Acesse a aplicação**:
-   - Abra seu navegador em: `http://localhost:8501`
+2. **Access the application**:
+   - Open your browser at: `http://localhost:8501`
 
-### Instalação Manual
+### Manual Installation
 
-1. **Instale as dependências**:
+1. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. **Execute a aplicação**:
+2. **Run the application**:
    ```bash
    streamlit run dashboard_app.py
    ```
 
-## 📁 Estrutura dos Arquivos
+## 📁 File Structure
 
 ```
-📦 Interface Python
-├── 🔮 prediction_model.py      # Modelo de predição principal
-├── 📊 dashboard_app.py         # Interface web Streamlit
-├── 📈 visualization_utils.py   # Utilitários de visualização
-├── 🚀 run_app.py              # Script de execução
-├── 📋 requirements.txt        # Dependências Python
-└── 📖 README_PYTHON.md        # Esta documentação
+📦 Python Interface
+├── 🔮 prediction_model.py      # Main prediction model
+├── 📊 dashboard_app.py         # Streamlit web interface
+├── 📈 visualization_utils.py   # Visualization utilities
+├── 🚀 run_app.py              # Execution script
+├── 📋 requirements.txt        # Python dependencies
+└── 📖 README_PYTHON.md        # This documentation
 ```
 
-## 🔬 Exemplo de Uso do Modelo
+## 🔬 Model Usage Example
 
-### Predição Básica
+### Basic Prediction
 
 ```python
 from prediction_model import PlasticDegradationPredictor
 
-# Inicializar o modelo
+# Initialize the model
 predictor = PlasticDegradationPredictor()
 
-# Fazer predição (baseada no exemplo fornecido)
+# Make prediction (based on provided example)
 prediction = predictor.predict_degradation(
     plastic_type="PVC",
     microorganism="Aspergillus niger",
@@ -87,129 +87,129 @@ prediction = predictor.predict_degradation(
     plastic_form="pieces"
 )
 
-print(f"Tempo para degradação: {prediction.time_to_observable_degradation} dias")
-print(f"Perda de peso esperada: {prediction.expected_weight_loss}%")
-print(f"Confiança: {prediction.confidence}")
+print(f"Time to degradation: {prediction.time_to_observable_degradation} days")
+print(f"Expected weight loss: {prediction.expected_weight_loss}%")
+print(f"Confidence: {prediction.confidence}")
 ```
 
-### Análise em Lote
+### Batch Analysis
 
 ```python
-# Definir múltiplos cenários
+# Define multiple scenarios
 scenarios = [
     {'plastic_type': 'PVC', 'microorganism': 'Aspergillus niger', 
      'temperature': 25, 'humidity': 60, 'ph': 5},
     {'plastic_type': 'PE', 'microorganism': 'Aspergillus niger', 
      'temperature': 30, 'humidity': 70, 'ph': 4},
-    # ... mais cenários
+    # ... more scenarios
 ]
 
-# Executar predições em lote
+# Execute batch predictions
 predictions = predictor.batch_predict(scenarios)
 ```
 
-## 📊 Funcionalidades do Dashboard
+## 📊 Dashboard Features
 
-### 1. **Painel de Predição**
-- Seleção de parâmetros via interface intuitiva
-- Sliders para condições ambientais
-- Resultados em tempo real
+### 1. **Prediction Panel**
+- Parameter selection via intuitive interface
+- Sliders for environmental conditions
+- Real-time results
 
-### 2. **Visualizações Interativas**
-- **Timeline de Degradação**: Mostra evolução temporal
-- **Radar de Condições**: Compara condições atuais vs ótimas
-- **Análise Comparativa**: Múltiplos cenários simultaneamente
+### 2. **Interactive Visualizations**
+- **Degradation Timeline**: Shows temporal evolution
+- **Conditions Radar**: Compares current vs optimal conditions
+- **Comparative Analysis**: Multiple scenarios simultaneously
 
-### 3. **Análise Avançada**
-- **Mapas de Calor**: Eficiência por combinação de parâmetros
-- **Superfícies 3D**: Efeito de temperatura e umidade
-- **Análise de Sensibilidade**: Impacto de cada parâmetro
+### 3. **Advanced Analysis**
+- **Heat Maps**: Efficiency by parameter combination
+- **3D Surfaces**: Effect of temperature and humidity
+- **Sensitivity Analysis**: Impact of each parameter
 
-### 4. **Dados Históricos**
-- Acesso à base de dados científica
-- Filtros por plástico e microrganismo
-- Informações de enzimas e genes
+### 4. **Historical Data**
+- Access to scientific database
+- Filters by plastic and microorganism
+- Enzyme and gene information
 
-## 🧬 Base Científica
+## 🧬 Scientific Basis
 
-### Dados da Literatura Integrados
+### Integrated Literature Data
 
-O modelo incorpora dados específicos de estudos científicos:
+The model incorporates specific data from scientific studies:
 
 - **Aspergillus niger + PVC**: 
-  - Peças: ~60 dias, 25% degradação
-  - Microplásticos: ~30 dias, 16% degradação
+  - Pieces: ~60 days, 25% degradation
+  - Microplastics: ~30 days, 16% degradation
 
 - **Acremonium sclerotigenum**:
-  - PET: ~30 dias, 6% degradação
-  - PS: ~30 dias, 10% degradação
+  - PET: ~30 days, 6% degradation
+  - PS: ~30 days, 10% degradation
 
-### Fatores de Correção
+### Correction Factors
 
-- **Temperatura**: Ótima ~30°C, fator de Arrhenius
-- **Umidade**: Ótima 60-80%, crescimento fúngico
-- **pH**: Ótimo 4-6 para maioria dos fungos
-- **Forma**: Microplásticos degradam mais rápido
+- **Temperature**: Optimal ~30°C, Arrhenius factor
+- **Humidity**: Optimal 60-80%, fungal growth
+- **pH**: Optimal 4-6 for most fungi
+- **Form**: Microplastics degrade faster
 
-## 🎯 Interpretação dos Resultados
+## 🎯 Results Interpretation
 
-### Níveis de Confiança
-- **Alta (>0.7)**: Dados robustos da literatura
-- **Média (0.4-0.7)**: Dados limitados ou extrapolados
-- **Baixa (<0.4)**: Estimativas baseadas em similaridade
+### Confidence Levels
+- **High (>0.7)**: Robust literature data
+- **Medium (0.4-0.7)**: Limited or extrapolated data
+- **Low (<0.4)**: Estimates based on similarity
 
-### Notas Explicativas
-O sistema fornece notas automáticas sobre:
-- Condições favoráveis/desfavoráveis
-- Limitações de temperatura/umidade/pH
-- Efeitos da forma do plástico
+### Explanatory Notes
+The system provides automatic notes about:
+- Favorable/unfavorable conditions
+- Temperature/humidity/pH limitations
+- Plastic form effects
 
-## 🔧 Personalização
+## 🔧 Customization
 
-### Adicionando Novos Dados
+### Adding New Data
 
-Para adicionar novos dados científicos, edite o arquivo `prediction_model.py`:
+To add new scientific data, edit the `prediction_model.py` file:
 
 ```python
 self.literature_data = {
-    'Novo_Fungo': {
-        'NOVO_PLASTICO': {
+    'New_Fungus': {
+        'NEW_PLASTIC': {
             'microplastics': {'time': X, 'degradation': Y, 'confidence': Z}
         }
     }
 }
 ```
 
-### Customizando Visualizações
+### Customizing Visualizations
 
-Edite `visualization_utils.py` para:
-- Adicionar novos tipos de gráficos
-- Modificar paletas de cores
-- Criar análises específicas
+Edit `visualization_utils.py` to:
+- Add new chart types
+- Modify color palettes
+- Create specific analyses
 
-## 📚 Referências Científicas
+## 📚 Scientific References
 
-O modelo é baseado em estudos científicos incluindo:
+The model is based on scientific studies including:
 
 1. **Aspergillus niger, Candida albicans, and Acremonium sclerotigenum** - Biodegradation of PE, PET, and PS microplastics (PubMed: 39502512)
 
-2. **Base de dados de degradadores** - Arquivo `degraders_list_with_images.json` com centenas de microrganismos catalogados
+2. **Degrader database** - File `degraders_list_with_images.json` with hundreds of cataloged microorganisms
 
-## 🤝 Contribuições
+## 🤝 Contributions
 
-Para contribuir com o projeto:
-1. Adicione novos dados científicos
-2. Melhore algoritmos de predição
-3. Crie novas visualizações
-4. Otimize performance
+To contribute to the project:
+1. Add new scientific data
+2. Improve prediction algorithms
+3. Create new visualizations
+4. Optimize performance
 
-## 📞 Suporte
+## 📞 Support
 
-Para dúvidas ou problemas:
-- Verifique se todas as dependências estão instaladas
-- Confirme que o arquivo `degraders_list_with_images.json` está presente
-- Execute `python run_app.py` para diagnóstico automático
+For questions or issues:
+- Check that all dependencies are installed
+- Confirm that the `degraders_list_with_images.json` file is present
+- Run `python run_app.py` for automatic diagnosis
 
 ---
 
-**Desenvolvido para análise científica de biodegradação de plásticos** 🌱
+**Developed for scientific analysis of plastic biodegradation** 🌱

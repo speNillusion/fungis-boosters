@@ -1,8 +1,8 @@
-# 🚀 Guia de Deploy - API StackSpot
+# 🚀 Deploy Guide - StackSpot API
 
-Este guia mostra como fazer deploy da API em diferentes plataformas.
+This guide shows how to deploy the API on different platforms.
 
-## 🎯 Plataformas Suportadas
+## 🎯 Supported Platforms
 
 - [Heroku](#heroku)
 - [Railway](#railway)
@@ -14,30 +14,30 @@ Este guia mostra como fazer deploy da API em diferentes plataformas.
 
 ## 🟣 Heroku
 
-### 1. Configurar Secrets no GitHub
+### 1. Configure Secrets in GitHub
 
 ```
-HEROKU_API_KEY=sua-api-key-do-heroku
-HEROKU_APP_NAME=nome-do-seu-app
-HEROKU_EMAIL=seu-email@heroku.com
+HEROKU_API_KEY=your-heroku-api-key
+HEROKU_APP_NAME=your-app-name
+HEROKU_EMAIL=your-email@heroku.com
 ```
 
-### 2. Deploy Manual
+### 2. Manual Deploy
 
 ```bash
-# Instalar Heroku CLI
+# Install Heroku CLI
 npm install -g heroku
 
 # Login
 heroku login
 
-# Criar app
-heroku create nome-do-seu-app
+# Create app
+heroku create your-app-name
 
-# Configurar variáveis
+# Configure variables
 heroku config:set REALM=stackspot-freemium
-heroku config:set CLIENT_ID=seu-client-id
-heroku config:set CLIENT_SECRET=seu-client-secret
+heroku config:set CLIENT_ID=your-client-id
+heroku config:set CLIENT_SECRET=your-client-secret
 heroku config:set NODE_ENV=production
 
 # Deploy
@@ -48,28 +48,28 @@ git push heroku main
 
 ## 🚂 Railway
 
-### 1. Configurar Secrets no GitHub
+### 1. Configure Secrets in GitHub
 
 ```
-RAILWAY_TOKEN=seu-token-do-railway
+RAILWAY_TOKEN=your-railway-token
 ```
 
-### 2. Deploy Manual
+### 2. Manual Deploy
 
 ```bash
-# Instalar Railway CLI
+# Install Railway CLI
 npm install -g @railway/cli
 
 # Login
 railway login
 
-# Inicializar projeto
+# Initialize project
 railway init
 
-# Configurar variáveis
+# Configure variables
 railway variables set REALM=stackspot-freemium
-railway variables set CLIENT_ID=seu-client-id
-railway variables set CLIENT_SECRET=seu-client-secret
+railway variables set CLIENT_ID=your-client-id
+railway variables set CLIENT_SECRET=your-client-secret
 railway variables set NODE_ENV=production
 
 # Deploy
@@ -80,15 +80,15 @@ railway up
 
 ## ▲ Vercel
 
-### 1. Configurar Secrets no GitHub
+### 1. Configure Secrets in GitHub
 
 ```
-VERCEL_TOKEN=seu-token-do-vercel
-VERCEL_ORG_ID=seu-org-id
-VERCEL_PROJECT_ID=seu-project-id
+VERCEL_TOKEN=your-vercel-token
+VERCEL_ORG_ID=your-org-id
+VERCEL_PROJECT_ID=your-project-id
 ```
 
-### 2. Criar vercel.json
+### 2. Create vercel.json
 
 ```json
 {
@@ -114,10 +114,10 @@ VERCEL_PROJECT_ID=seu-project-id
 }
 ```
 
-### 3. Deploy Manual
+### 3. Manual Deploy
 
 ```bash
-# Instalar Vercel CLI
+# Install Vercel CLI
 npm install -g vercel
 
 # Login
@@ -131,16 +131,16 @@ vercel --prod
 
 ## 🎨 Render
 
-### 1. Configuração via Dashboard
+### 1. Configuration via Dashboard
 
-1. Conecte seu repositório GitHub
-2. Configure as variáveis de ambiente:
+1. Connect your GitHub repository
+2. Configure environment variables:
    - `REALM=stackspot-freemium`
-   - `CLIENT_ID=seu-client-id`
-   - `CLIENT_SECRET=seu-client-secret`
+   - `CLIENT_ID=your-client-id`
+   - `CLIENT_SECRET=your-client-secret`
    - `NODE_ENV=production`
 
-### 2. Configuração de Build
+### 2. Build Configuration
 
 ```yaml
 # render.yaml
@@ -165,7 +165,7 @@ services:
 
 ## 🌊 DigitalOcean App Platform
 
-### 1. Configuração via .do/app.yaml
+### 1. Configuration via .do/app.yaml
 
 ```yaml
 name: plastic-degradation-api
@@ -173,7 +173,7 @@ services:
 - name: api
   source_dir: /
   github:
-    repo: seu-usuario/seu-repositorio
+    repo: your-username/your-repository
     branch: main
   run_command: npm start
   environment_slug: node-js
@@ -192,44 +192,44 @@ services:
 
 ---
 
-## 🔧 Configuração Local para Desenvolvimento
+## 🔧 Local Configuration for Development
 
-### 1. Instalar dependências
+### 1. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Configurar .env
+### 2. Configure .env
 
 ```bash
 cp .env.example .env
-# Editar .env com suas credenciais
+# Edit .env with your credentials
 ```
 
-### 3. Executar
+### 3. Run
 
 ```bash
-# Desenvolvimento (com watch)
+# Development (with watch)
 npm run dev
 
-# Produção
+# Production
 npm start
 ```
 
 ---
 
-## 🔍 Verificação de Deploy
+## 🔍 Deploy Verification
 
 ### Health Check
 
-Todas as plataformas devem responder em:
+All platforms should respond at:
 
 ```
 GET /health
 ```
 
-Resposta esperada:
+Expected response:
 ```json
 {
   "status": "ok",
@@ -238,14 +238,14 @@ Resposta esperada:
 }
 ```
 
-### Teste da API
+### API Test
 
 ```bash
-# Testar endpoint principal
-curl https://seu-app.herokuapp.com/
+# Test main endpoint
+curl https://your-app.herokuapp.com/
 
-# Testar com dados
-curl -X POST https://seu-app.herokuapp.com/predict \
+# Test with data
+curl -X POST https://your-app.herokuapp.com/predict \
   -H "Content-Type: application/json" \
   -d '{"data": "test"}'
 ```
@@ -254,25 +254,25 @@ curl -X POST https://seu-app.herokuapp.com/predict \
 
 ## 🆘 Troubleshooting
 
-### Erro: "Missing environment variables"
+### Error: "Missing environment variables"
 
-**Solução**: Verifique se todas as variáveis estão configuradas na plataforma.
+**Solution**: Check that all variables are configured on the platform.
 
-### Erro: "Port already in use"
+### Error: "Port already in use"
 
-**Solução**: Use `process.env.PORT` no código (já configurado).
+**Solution**: Use `process.env.PORT` in code (already configured).
 
-### Erro: "Module not found"
+### Error: "Module not found"
 
-**Solução**: Verifique se `"type": "module"` está no package.json.
+**Solution**: Check that `"type": "module"` is in package.json.
 
-### Deploy falha no GitHub Actions
+### Deploy fails in GitHub Actions
 
-**Solução**: Verifique se todos os secrets estão configurados corretamente.
+**Solution**: Check that all secrets are configured correctly.
 
 ---
 
-## 📊 Monitoramento
+## 📊 Monitoring
 
 ### Logs
 
@@ -287,13 +287,13 @@ railway logs
 vercel logs
 ```
 
-### Métricas
+### Metrics
 
-- Tempo de resposta
-- Taxa de erro
-- Uso de memória
-- Número de requisições
+- Response time
+- Error rate
+- Memory usage
+- Number of requests
 
 ---
 
-**💡 Dica**: Sempre teste localmente antes de fazer deploy!
+**💡 Tip**: Always test locally before deploying!

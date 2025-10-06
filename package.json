@@ -1,7 +1,7 @@
 {
   "name": "plastic-degradation-dashboard",
   "version": "1.0.0",
-  "description": "Dashboard de Degradação de Plásticos por Fungos - Sistema de predição e análise",
+  "description": "Plastic Degradation Dashboard by Fungi - Prediction and analysis system",
   "main": "api.mjs",
   "type": "module",
   "scripts": {

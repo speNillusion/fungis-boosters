@@ -1,102 +1,102 @@
-# 🧪 Dashboard de Degradação de Plásticos por Fungos
+# 🧪 Plastic Degradation Dashboard by Fungi
 
-> **Sistema inteligente de predição e análise da biodegradação de plásticos por microrganismos fúngicos**
+> **Intelligent system for prediction and analysis of plastic biodegradation by fungal microorganisms**
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
 [![Plotly](https://img.shields.io/badge/Plotly-5.0+-green.svg)](https://plotly.com)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🌟 Visão Geral
+## 🌟 Overview
 
-Este projeto oferece uma **plataforma completa** para análise e predição da degradação de plásticos por fungos, combinando dados científicos reais com modelos preditivos avançados. Ideal para pesquisadores, estudantes e profissionais interessados em **biotecnologia ambiental** e **sustentabilidade**.
+This project offers a **complete platform** for analysis and prediction of plastic degradation by fungi, combining real scientific data with advanced predictive models. Ideal for researchers, students and professionals interested in **environmental biotechnology** and **sustainability**.
 
-### ✨ Principais Características
+### ✨ Key Features
 
-- 🔮 **Modelo Preditivo Inteligente**: Baseado em literatura científica peer-reviewed
-- 📊 **Dashboard Interativo**: Interface web moderna e intuitiva
-- 📈 **Visualizações Avançadas**: Gráficos 3D, mapas de calor, análise temporal
-- 🗄️ **Base de Dados Científica**: 2.432 registros de estudos de biodegradação
-- 🧬 **Múltiplos Microrganismos**: 857 fungos e bactérias catalogados
-- 🔬 **Diversos Plásticos**: 71 tipos diferentes (PVC, PE, PET, PS, PP, PLA, PHB, etc.)
+- 🔮 **Intelligent Predictive Model**: Based on peer-reviewed scientific literature
+- 📊 **Interactive Dashboard**: Modern and intuitive web interface
+- 📈 **Advanced Visualizations**: 3D charts, heat maps, temporal analysis
+- 🗄️ **Scientific Database**: 2,432 biodegradation study records
+- 🧬 **Multiple Microorganisms**: 857 cataloged fungi and bacteria
+- 🔬 **Diverse Plastics**: 71 different types (PVC, PE, PET, PS, PP, PLA, PHB, etc.)
 
-## 🚀 Demo Rápido
+## 🚀 Quick Demo
 
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/plastic-degradation-dashboard.git
+# Clone the repository
+git clone https://github.com/your-username/plastic-degradation-dashboard.git
 cd plastic-degradation-dashboard
 
-# Execute a aplicação (instala dependências automaticamente)
+# Run the application (installs dependencies automatically)
 python run_app.py
 ```
 
-**🌐 Acesse:** `http://localhost:8501`
+**🌐 Access:** `http://localhost:8501`
 
 ## 📸 Screenshots
 
-### Dashboard Principal
-![Dashboard](https://via.placeholder.com/800x400/1f77b4/ffffff?text=Dashboard+Principal)
+### Main Dashboard
+![Dashboard](https://via.placeholder.com/800x400/1f77b4/ffffff?text=Main+Dashboard)
 
-### Análise 3D
-![Análise 3D](https://via.placeholder.com/800x400/2ca02c/ffffff?text=Visualização+3D)
+### 3D Analysis
+![3D Analysis](https://via.placeholder.com/800x400/2ca02c/ffffff?text=3D+Visualization)
 
-### Predições em Tempo Real
-![Predições](https://via.placeholder.com/800x400/ff7f0e/ffffff?text=Predições+Interativas)
+### Real-time Predictions
+![Predictions](https://via.placeholder.com/800x400/ff7f0e/ffffff?text=Interactive+Predictions)
 
-## 🔬 Funcionalidades Científicas
+## 🔬 Scientific Features
 
-### 🎯 Modelo de Predição
-- **Fatores Ambientais**: Temperatura (10-45°C), Umidade (10-95%), pH (2-12)
-- **Formas de Plástico**: Peças, microplásticos, filmes, pó
-- **Confiança Estatística**: Cada predição inclui nível de confiança
-- **Validação Científica**: Baseado em estudos como Aspergillus niger, Candida albicans
+### 🎯 Prediction Model
+- **Environmental Factors**: Temperature (10-45°C), Humidity (10-95%), pH (2-12)
+- **Plastic Forms**: Pieces, microplastics, films, powder
+- **Statistical Confidence**: Each prediction includes confidence level
+- **Scientific Validation**: Based on studies like Aspergillus niger, Candida albicans
 
-### 📊 Análises Disponíveis
-- **Timeline de Degradação**: Evolução temporal da biodegradação
-- **Mapas de Calor**: Eficiência por combinação de parâmetros
-- **Análise de Sensibilidade**: Impacto de cada variável
-- **Comparação de Cenários**: Múltiplas condições simultaneamente
-- **Distribuições Estatísticas**: Intervalos de confiança
+### 📊 Available Analyses
+- **Degradation Timeline**: Temporal evolution of biodegradation
+- **Heat Maps**: Efficiency by parameter combination
+- **Sensitivity Analysis**: Impact of each variable
+- **Scenario Comparison**: Multiple conditions simultaneously
+- **Statistical Distributions**: Confidence intervals
 
-### 🗃️ Base de Dados
-- **2.432 registros** de estudos científicos
-- **857 microrganismos** únicos catalogados
-- **71 tipos de plásticos** diferentes
-- **80 enzimas** identificadas
-- **Período**: Estudos de 1974-2023
+### 🗃️ Database
+- **2,432 records** of scientific studies
+- **857 unique microorganisms** cataloged
+- **71 different plastic types**
+- **80 enzymes** identified
+- **Period**: Studies from 1974-2023
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
 - **Backend**: Python 3.8+
 - **Interface**: Streamlit
-- **Visualizações**: Plotly, Matplotlib
-- **Dados**: SQLite, Pandas, NumPy
-- **Análise**: SciPy, Scikit-learn
+- **Visualizations**: Plotly, Matplotlib
+- **Data**: SQLite, Pandas, NumPy
+- **Analysis**: SciPy, Scikit-learn
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 📦 plastic-degradation-dashboard/
-├── 🔮 prediction_model.py      # Modelo de predição principal
-├── 📊 dashboard_app.py         # Interface web Streamlit
-├── 📈 visualization_utils.py   # Utilitários de visualização
-├── 🚀 run_app.py              # Script de execução automática
-├── 🗄️ degradation_data.db     # Base de dados SQLite
-├── 📋 requirements.txt        # Dependências Python
-├── 🔧 setup_db.py             # Configuração da base de dados
-└── 📖 README.md               # Documentação completa
+├── 🔮 prediction_model.py      # Main prediction model
+├── 📊 dashboard_app.py         # Streamlit web interface
+├── 📈 visualization_utils.py   # Visualization utilities
+├── 🚀 run_app.py              # Automatic execution script
+├── 🗄️ degradation_data.db     # SQLite database
+├── 📋 requirements.txt        # Python dependencies
+├── 🔧 setup_db.py             # Database configuration
+└── 📖 README.md               # Complete documentation
 ```
 
-## 🧬 Exemplo de Uso
+## 🧬 Usage Example
 
 ```python
 from prediction_model import PlasticDegradationPredictor
 
-# Inicializar o modelo
+# Initialize the model
 predictor = PlasticDegradationPredictor()
 
-# Fazer predição
+# Make prediction
 prediction = predictor.predict_degradation(
     plastic_type="PVC",
     microorganism="Aspergillus niger",
@@ -106,68 +106,68 @@ prediction = predictor.predict_degradation(
     plastic_form="pieces"
 )
 
-print(f"Tempo para degradação: {prediction.degradation_time_days} dias")
-print(f"Perda de peso: {prediction.weight_loss_percentage}%")
-print(f"Confiança: {prediction.confidence:.2f}")
+print(f"Time to degradation: {prediction.degradation_time_days} days")
+print(f"Weight loss: {prediction.weight_loss_percentage}%")
+print(f"Confidence: {prediction.confidence:.2f}")
 ```
 
-## 📈 Casos de Uso
+## 📈 Use Cases
 
-### 🎓 **Pesquisa Acadêmica**
-- Planejamento de experimentos de biodegradação
-- Análise comparativa de microrganismos
-- Otimização de condições experimentais
+### 🎓 **Academic Research**
+- Planning biodegradation experiments
+- Comparative analysis of microorganisms
+- Optimization of experimental conditions
 
-### 🏭 **Indústria**
-- Avaliação de biodegradabilidade de produtos
-- Desenvolvimento de plásticos biodegradáveis
-- Análise de impacto ambiental
+### 🏭 **Industry**
+- Product biodegradability assessment
+- Development of biodegradable plastics
+- Environmental impact analysis
 
-### 🌱 **Sustentabilidade**
-- Estudos de decomposição de resíduos plásticos
-- Avaliação de tecnologias de biorremediação
-- Educação ambiental
+### 🌱 **Sustainability**
+- Plastic waste decomposition studies
+- Bioremediation technology assessment
+- Environmental education
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Contribuições são bem-vindas! Veja como ajudar:
+Contributions are welcome! Here's how to help:
 
-1. **Fork** o projeto
-2. **Crie** uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** para a branch (`git push origin feature/AmazingFeature`)
-5. **Abra** um Pull Request
+1. **Fork** the project
+2. **Create** a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **Open** a Pull Request
 
-### 🎯 Áreas para Contribuição
-- 📊 Novas visualizações e análises
-- 🔬 Integração de novos dados científicos
-- 🚀 Otimização de performance
-- 🌐 Internacionalização
-- 📱 Interface mobile
+### 🎯 Areas for Contribution
+- 📊 New visualizations and analyses
+- 🔬 Integration of new scientific data
+- 🚀 Performance optimization
+- 🌐 Internationalization
+- 📱 Mobile interface
 
-## 📚 Referências Científicas
+## 📚 Scientific References
 
-O projeto é baseado em estudos científicos peer-reviewed, incluindo:
+The project is based on peer-reviewed scientific studies, including:
 
 - **Biodegradation studies** - PubMed: 39502512
-- **Fungal degradation mechanisms** - Diversos estudos catalogados
-- **Environmental factors** - Literatura especializada em biotecnologia
+- **Fungal degradation mechanisms** - Various cataloged studies
+- **Environmental factors** - Specialized biotechnology literature
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Agradecimentos
+## 🙏 Acknowledgments
 
-- Comunidade científica pela disponibilização de dados
-- Desenvolvedores do Streamlit e Plotly
-- Pesquisadores em biotecnologia ambiental
+- Scientific community for data availability
+- Streamlit and Plotly developers
+- Environmental biotechnology researchers
 
 ---
 
 <div align="center">
 
-**🌍 Contribuindo para um futuro mais sustentável através da ciência** 
+**🌍 Contributing to a more sustainable future through science** 
 
 [⭐ Star](../../stargazers) • [🐛 Report Bug](../../issues) • [💡 Request Feature](../../issues)
 

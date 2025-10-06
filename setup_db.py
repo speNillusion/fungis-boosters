@@ -43,7 +43,7 @@ def setup_database(db_name='degradation_data.db', json_file_path='./degraders_li
     print(f"Database '{db_name}' created and data imported successfully.")
 
 def load_data_from_db(db_name='degradation_data.db'):
-    """Carrega todos os dados da tabela 'degraders' do banco SQLite."""
+    """Loads all data from the 'degraders' table in the SQLite database."""
     try:
         conn = sqlite3.connect(db_name)
         query = "SELECT * FROM degraders"
@@ -51,14 +51,14 @@ def load_data_from_db(db_name='degradation_data.db'):
         conn.close()
         return df
     except Exception as e:
-        print(f"Erro ao carregar dados do banco de dados: {e}")
+        print(f"Error loading data from database: {e}")
         return None
 
 if __name__ == "__main__":
     setup_database()
-    # Exemplo de como carregar os dados após a configuração
+    # Example of how to load data after setup
     # df_loaded = load_data_from_db()
     # if df_loaded is not None:
-    #     print("Dados carregados com sucesso:")
+    #     print("Data loaded successfully:")
     #     print(df_loaded.head())
 

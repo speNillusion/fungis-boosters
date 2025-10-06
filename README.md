@@ -1,76 +1,76 @@
-# 🧪 Dashboard de Degradação de Plásticos por Fungos
+# 🧪 Plastic Degradation by Fungi Dashboard
 
-> Sistema inteligente de predição e análise da biodegradação de plásticos por microrganismos fúngicos
+> Intelligent system for prediction and analysis of plastic biodegradation by fungal microorganisms
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🚀 Início Rápido
+## 🚀 Quick Start
 
 ```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/seu-usuario/plastic-degradation-dashboard.git
 cd plastic-degradation-dashboard
 
-# Execute a aplicação (instala dependências automaticamente)
+# Run the application (automatically installs dependencies)
 python run_app.py
 ```
 
-**🌐 Acesse:** `http://localhost:8501`
+**🌐 Access:** `http://localhost:8501`
 
-## ✨ Características Principais
+## ✨ Main Features
 
-- 🔮 **Modelo Preditivo**: Baseado em 2.432 estudos científicos
-- 📊 **Dashboard Interativo**: Interface web moderna com Streamlit
-- 📈 **Visualizações Avançadas**: Gráficos 3D, mapas de calor, análise temporal
-- 🧬 **857 Microrganismos**: Fungos e bactérias catalogados
-- 🔬 **71 Tipos de Plásticos**: PVC, PE, PET, PS, PP, PLA, PHB e mais
+- 🔮 **Predictive Model**: Based on 2,432 scientific studies
+- 📊 **Interactive Dashboard**: Modern web interface with Streamlit
+- 📈 **Advanced Visualizations**: 3D charts, heat maps, temporal analysis
+- 🧬 **857 Microorganisms**: Cataloged fungi and bacteria
+- 🔬 **71 Plastic Types**: PVC, PE, PET, PS, PP, PLA, PHB and more
 
-## 🔬 Funcionalidades
+## 🔬 Functionalities
 
-### Predição Inteligente
-- Fatores ambientais (temperatura, umidade, pH)
-- Múltiplas formas de plástico
-- Confiança estatística
-- Validação científica
+### Intelligent Prediction
+- Environmental factors (temperature, humidity, pH)
+- Multiple plastic forms
+- Statistical confidence
+- Scientific validation
 
-### Análises Disponíveis
-- Timeline de degradação
-- Mapas de calor de eficiência
-- Análise de sensibilidade
-- Comparação de cenários
-- Distribuições estatísticas
+### Available Analyses
+- Degradation timeline
+- Efficiency heat maps
+- Sensitivity analysis
+- Scenario comparison
+- Statistical distributions
 
-## 📊 Base de Dados
+## 📊 Database
 
-- **2.432 registros** de estudos científicos (1974-2023)
-- **857 microrganismos** únicos
-- **71 tipos de plásticos**
-- **80 enzimas** identificadas
-- **416 tipos de evidência**
+- **2,432 records** from scientific studies (1974-2023)
+- **857 unique microorganisms**
+- **71 plastic types**
+- **80 identified enzymes**
+- **416 evidence types**
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
-- **Python 3.8+** - Backend e análise
-- **Streamlit** - Interface web
-- **Plotly** - Visualizações interativas
-- **SQLite** - Base de dados
-- **Pandas/NumPy** - Processamento de dados
+- **Python 3.8+** - Backend and analysis
+- **Streamlit** - Web interface
+- **Plotly** - Interactive visualizations
+- **SQLite** - Database
+- **Pandas/NumPy** - Data processing
 
-## 📁 Estrutura
+## 📁 Structure
 
 ```
-📦 Projeto/
-├── 🔮 prediction_model.py      # Modelo de predição
-├── 📊 dashboard_app.py         # Interface web
-├── 📈 visualization_utils.py   # Visualizações
-├── 🚀 run_app.py              # Execução automática
-├── 🗄️ degradation_data.db     # Base de dados
-└── 📋 requirements.txt        # Dependências
+📦 Project/
+├── 🔮 prediction_model.py      # Prediction model
+├── 📊 dashboard_app.py         # Web interface
+├── 📈 visualization_utils.py   # Visualizations
+├── 🚀 run_app.py              # Automatic execution
+├── 🗄️ degradation_data.db     # Database
+└── 📋 requirements.txt        # Dependencies
 ```
 
-## 🧬 Exemplo de Uso
+## 🧬 Usage Example
 
 ```python
 from prediction_model import PlasticDegradationPredictor
@@ -86,40 +86,40 @@ prediction = predictor.predict_degradation(
     plastic_form="pieces"
 )
 
-print(f"Tempo: {prediction.degradation_time_days} dias")
-print(f"Degradação: {prediction.weight_loss_percentage}%")
+print(f"Time: {prediction.degradation_time_days} days")
+print(f"Degradation: {prediction.weight_loss_percentage}%")
 ```
 
-## 🎯 Casos de Uso
+## 🎯 Use Cases
 
-- **🎓 Pesquisa Acadêmica**: Planejamento de experimentos
-- **🏭 Indústria**: Avaliação de biodegradabilidade
-- **🌱 Sustentabilidade**: Estudos ambientais
-- **📚 Educação**: Ensino de biotecnologia
+- **🎓 Academic Research**: Experiment planning
+- **🏭 Industry**: Biodegradability assessment
+- **🌱 Sustainability**: Environmental studies
+- **📚 Education**: Biotechnology teaching
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-1. Fork o projeto
-2. Crie sua feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Licença
+## 📄 License
 
-Distribuído sob a Licença MIT. Veja `LICENSE` para mais informações.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-## 🙏 Agradecimentos
+## 🙏 Acknowledgments
 
-- Comunidade científica pela disponibilização de dados
-- Desenvolvedores do Streamlit e Plotly
-- Pesquisadores em biotecnologia ambiental
+- Scientific community for data availability
+- Streamlit and Plotly developers
+- Environmental biotechnology researchers
 
 ---
 
 <div align="center">
 
-**🌍 Contribuindo para um futuro mais sustentável através da ciência**
+**🌍 Contributing to a more sustainable future through science**
 
 [⭐ Star](../../stargazers) • [🐛 Issues](../../issues) • [💡 Features](../../issues)
 

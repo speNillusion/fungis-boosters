@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script principal para executar a aplicação de predição de degradação de plásticos
+Main script to run the plastic degradation prediction application
 """
 
 import subprocess
@@ -9,34 +9,34 @@ import os
 from pathlib import Path
 
 def check_requirements():
-    """Verifica se as dependências estão instaladas"""
+    """Checks if dependencies are installed"""
     try:
         import streamlit
         import plotly
         import pandas
         import numpy
-        print("✅ Todas as dependências estão instaladas")
+        print("✅ All dependencies are installed")
         return True
     except ImportError as e:
-        print(f"❌ Dependência faltando: {e}")
+        print(f"❌ Missing dependency: {e}")
         return False
 
 def install_requirements():
-    """Instala as dependências necessárias"""
-    print("📦 Instalando dependências...")
+    """Installs necessary dependencies"""
+    print("📦 Installing dependencies...")
     try:
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-        print("✅ Dependências instaladas com sucesso")
+        print("✅ Dependencies installed successfully")
         return True
     except subprocess.CalledProcessError:
-        print("❌ Erro ao instalar dependências")
+        print("❌ Error installing dependencies")
         return False
 
 def run_streamlit_app():
-    """Executa a aplicação Streamlit"""
-    print("🚀 Iniciando aplicação...")
+    """Runs the Streamlit application"""
+    print("🚀 Starting application...")
     
-    # Configurações do Streamlit
+    # Streamlit configurations
     config_args = [
         "--server.port=8501",
         "--server.address=localhost",
@@ -52,30 +52,30 @@ def run_streamlit_app():
     try:
         subprocess.run(cmd)
     except KeyboardInterrupt:
-        print("\n👋 Aplicação encerrada pelo usuário")
+        print("\n👋 Application closed by user")
     except Exception as e:
-        print(f"❌ Erro ao executar aplicação: {e}")
+        print(f"❌ Error running application: {e}")
 
 def main():
-    """Função principal"""
-    print("🧪 Dashboard de Degradação de Plásticos por Fungos")
+    """Main function"""
+    print("🧪 Plastic Degradation Dashboard by Fungi")
     print("=" * 50)
     
-    # Verificar se estamos no diretório correto
+    # Check if we're in the correct directory
     if not Path("dashboard_app.py").exists():
-        print("❌ Arquivo dashboard_app.py não encontrado no diretório atual")
-        print("Certifique-se de estar no diretório correto")
+        print("❌ dashboard_app.py file not found in current directory")
+        print("Make sure you're in the correct directory")
         return
     
-    # Verificar dependências
+    # Check dependencies
     if not check_requirements():
-        print("\n📦 Instalando dependências necessárias...")
+        print("\n📦 Installing necessary dependencies...")
         if not install_requirements():
-            print("❌ Falha na instalação das dependências")
+            print("❌ Failed to install dependencies")
             return
     
-    print("\n🌐 A aplicação será aberta em: http://localhost:8501")
-    print("💡 Para parar a aplicação, pressione Ctrl+C")
+    print("\n🌐 The application will open at: http://localhost:8501")
+    print("💡 To stop the application, press Ctrl+C")
     print("-" * 50)
     
     # Executar aplicação
