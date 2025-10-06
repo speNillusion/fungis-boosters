@@ -12,9 +12,10 @@
 # Clone the repository
 git clone https://github.com/seu-usuario/plastic-degradation-dashboard.git
 cd plastic-degradation-dashboard
+node api.mjs
 
 # Run the application (automatically installs dependencies)
-python run_app.py
+python -m streamlit run run_app.py
 ```
 
 **🌐 Access:** `http://localhost:8501`
