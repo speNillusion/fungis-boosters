@@ -1,0 +1,33 @@
+{
+  "name": "plastic-degradation-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard de Degradação de Plásticos por Fungos - Sistema de predição e análise",
+  "main": "api.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node api.mjs",
+    "dev": "node --watch api.mjs",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "echo \"No linting configured\" && exit 0"
+  },
+  "keywords": [
+    "plastic",
+    "degradation",
+    "fungi",
+    "prediction",
+    "dashboard",
+    "stackspot",
+    "api"
+  ],
+  "author": "Plastic Degradation Research Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsdom": "^27.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}
